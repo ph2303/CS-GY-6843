@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3656146f-4567-42d7-a46b-1e9958b6336c" name="Changes" comment="" />
+    <list default="true" id="3656146f-4567-42d7-a46b-1e9958b6336c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/game_over.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution.py" beforeDir="false" afterPath="$PROJECT_DIR$/solution.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -24,9 +29,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.solution">
     <configuration default="true" type="DjangoTestsConfigurationType">
@@ -239,6 +246,8 @@
       <workItem from="1631370611605" duration="4150000" />
       <workItem from="1631417775283" duration="610000" />
       <workItem from="1631493718678" duration="871000" />
+      <workItem from="1631577249378" duration="3302000" />
+      <workItem from="1632238962741" duration="5016000" />
     </task>
     <servers />
   </component>

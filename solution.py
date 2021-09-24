@@ -14,7 +14,7 @@ def webServer(port=13331):
     while True:
         # Establish the connection
         # print('Ready to serve...')
-        connectionSocket, addr = "" # Fill in start      #Fill in end
+        connection_socket, addr = "" # Fill in start      #Fill in end
         try:
             try:
                 message = "" # Fill in start    #Fill in end
@@ -30,7 +30,7 @@ def webServer(port=13331):
                 connectionSocket.send("\r\n".encode())
                 connectionSocket.close()
             except IOError:
-                prinet("error")
+                print("error")
         # Send response message for file not found (404)
         # Fill in start
         # Fill in end
