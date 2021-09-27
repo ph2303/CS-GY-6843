@@ -122,8 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.solution" />
         <item itemvalue="Python.client" />
+        <item itemvalue="Python.solution" />
         <item itemvalue="Python.udp_server" />
         <item itemvalue="Python.server" />
       </list>
@@ -137,7 +137,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1632605817321</updated>
-      <workItem from="1632605822122" duration="17288000" />
+      <workItem from="1632605822122" duration="17509000" />
     </task>
     <servers />
   </component>
