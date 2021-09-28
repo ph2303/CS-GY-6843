@@ -16,8 +16,8 @@ def webServer(port=13331):
         try:
             try:
                 message = connectionSocket.recv(1024).decode()
-                filename = message
-                f = open(filename)
+                filename = message.split()[1]
+                f = open(filename[1:])
                 outputdata = f.read()
                 # Send one HTTP header line into socket.
                 response_header = "HTTP/1.1 200 OK\n"
@@ -25,16 +25,18 @@ def webServer(port=13331):
                 # Send the content of the requested file to the client
                 for i in range(0, len(outputdata)):
                     connectionSocket.send(outputdata[i].encode())
-                f.close()
                 connectionSocket.send("\r\n".encode())
-            except IOError:
+                f.close()
+            except IOError as error:
                 not_found_header = "HTTP/1.1 404 Not Found\n"
                 connectionSocket.send(not_found_header.encode())
+                print(error)
             connectionSocket.close()
-        except (ConnectionResetError, BrokenPipeError):
+        except (ConnectionResetError, BrokenPipeError) as error:
+            print(error)
             pass
-    serverSocket.close()
-    sys.exit()  # Terminate the program after sending the corresponding data
+        serverSocket.close()
+        sys.exit()  # Terminate the program after sending the corresponding data
 
 if __name__ == "__main__":
     webServer(13331)
