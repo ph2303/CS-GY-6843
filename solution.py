@@ -17,22 +17,22 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    recv = clientSocket.recv(1024).decode()
    # print(recv)
    if recv[:3] != '220':
-       # print('220 reply not received from server.')
+       print('220 reply not received from server.')
 
    # Send HELO command and print server response.
    heloCommand = 'HELO Alice\r\n'
    clientSocket.send(heloCommand.encode())
-   recv1 = clientSocket.recv(1024).decode()
-   # print(recv1)
-   if recv1[:3] != '250':
-       # print('250 reply not received from server.')
+   hello_response = clientSocket.recv(1024).decode()
+   # print(hello_response)
+   if hello_response[:3] != '250':
+       print('250 reply not received from server.')
 
    # Send MAIL FROM command and print server response.
    # Fill in start
    mailFrom = "MAIL FROM:<ph2303@nyu.edu.com>\r\n"
    clientSocket.send(mailFrom.encode())
-   recv2 = clientSocket.recv(1024)
-   recv2 = recv2.decode()
+   mail_from_response = clientSocket.recv(1024)
+   mail_from_response = mail_from_response.decode()
    # print(recv2)
    # Fill in end
 
@@ -40,18 +40,18 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Fill in start
    rcptTo = "RCPT TO:<prestonharms5@gmail.com>\r\n"
    clientSocket.send(rcptTo.encode())
-   recv3 = clientSocket.recv(1024)
-   recv3 = recv3.decode()
-   # print(recv3)
+   rcpt_to_response = clientSocket.recv(1024)
+   rcpt_to_response = rcpt_to_response.decode()
+   # print(rcpt_to_response)
    # Fill in end
 
    # Send DATA command and print server response.
    # Fill in start
    data = "DATA\r\n"
    clientSocket.send(data.encode())
-   recv4 = clientSocket.recv(1024)
-   recv4 = recv4.decode()
-   # print(recv4)
+   data_response = clientSocket.recv(1024)
+   data_response = data_response.decode()
+   # print(data_response)
    # Fill in end
 
    # Send message data.
@@ -62,16 +62,16 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
    # Message ends with a single period.
    # Fill in start
    clientSocket.send(endmsg.encode())
-   recv_msg = clientSocket.recv(1024)
-   # print(recv_msg.decode())
+   msg_response = clientSocket.recv(1024)
+   # print(msg_response.decode())
    # Fill in end
 
    # Send QUIT command and get server response.
    # Fill in start
    quit = "QUIT\r\n"
    clientSocket.send(quit.encode())
-   recv6 = clientSocket.recv(1024)
-   # print(recv6.decode())
+   quit_response = clientSocket.recv(1024)
+   # print(quit_response.decode())
    clientSocket.close()
    # Fill in end
 
