@@ -80,3 +80,102 @@ The method “ping” must return a Python list with the above values for a vali
 [min,avg,max,stdev]. Return values must be in milliseconds.
 </li>
 </ul>
+
+<h2>Internet Control Message Protocol (ICMP)</h2>
+<h3>ICMP Header</h3>
+<p>
+The ICMP header starts after bit 160 of the IP header (unless IP options are used).
+</p>
+
+<ul>
+<li>
+Type - ICMP type.
+</li>
+<li>
+Code - Subtype to the given ICMP type.
+</li>
+<li>
+Checksum - Error checking data calculated from the ICMP header + data, with value 0 for this field.
+</li>
+<li>
+ID - An ID value, should be returned in the case of echo reply.
+</li>
+<li>
+Sequence - A sequence value, should be returned in the case of echo reply.
+</li>
+</ul>
+
+<h2>Echo Request</h2>
+<p>
+The echo request is an ICMP message whose data is expected to be received back in an echo reply ("pong"). The host must 
+respond to all echo requests with an echo reply containing the exact data received in the request message.
+</p>
+<ul>
+<li>
+Type must be set to 8.
+</li>
+<li>
+Code must be set to 0.
+</li>
+<li>
+The Identifier and Sequence Number can be used by the client to match the reply with the request that caused the reply
+</li>
+<li>
+In practice, most Linux systems use a unique identifier for every ping process, and sequence number is an increasing 
+number within that process. Windows uses a fixed identifier, which varies between Windows versions, and a sequence 
+number that is only reset at boot time.
+</li>
+<li>
+The data received by the echo request must be entirely included in the echo reply.
+</li>
+</ul>
+
+
+<h2>Echo Reply</h2>
+<p>
+The echo reply is an ICMP message generated in response to an echo request, and is mandatory for all hosts and routers.
+</p>
+<ul>
+<li>
+Type and code must be set to 0.
+</li>
+<li>
+The identifier and sequence number can be used by the client to determine which echo requests are associated with the 
+echo replies.
+</li>
+<li>
+The data received in the echo request must be entirely included in the echo reply.
+</li>
+</ul>
+
+
+
+
+<h2>FAQ</h2>
+<p>
+Q: I am getting the following error in gradescope: 
+“cp: cannot stat '/autograder/submission/solution.py': No such file or directory”
+</p>
+<p>
+A: If you are submitting a python solution, all python submissions must have the filename titled “solution.py” (minus 
+the quotation marks). Make sure your file meets this naming requirement.
+</p>
+
+<h2>Recommended Textbook Reference</h2>
+<p>
+Chapter 5: 5.6 ICMP: The Internet Control Message Protocol
+</p>
+
+<h2>Most Common issues</h2>
+<ul>
+<li>
+var values are not strings
+</li>
+<li>
+var values are not calculated correctly
+</li>
+<li>
+Recommend to print out your var values and analyze them to see if they actually make sense. If they don’t, revisit your 
+method for calculating.
+</li>
+</ul>
