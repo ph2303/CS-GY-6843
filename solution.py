@@ -7,6 +7,7 @@ import select
 import binascii
 
 # Should use stdev
+# 4a21110j8050001
 from statistics import stdev
 
 ICMP_ECHO_REQUEST = 8
@@ -118,19 +119,19 @@ def ping(host, timeout=1):
     # Send ping requests to a server separated by approximately one second
     stdev_var = []
     for i in range(0, 4):
-        delay = doOnePing(dest, timeout)
+        delay = doOnePing(dest, timeout) * 1000
         # print(delay)
         stdev_var.append(delay)
         time.sleep(1)  # one second
     # Calculate vars values and return them
 
-    packet_min = 0
+    packet_min = stdev_var[0]
     packet_max = 0
     total = 0
     for d in stdev_var:
         if d < packet_min:
             packet_min = d
-        if d> packet_max:
+        if d > packet_max:
             packet_max = d
         total += d
     packet_avg = total/4
@@ -139,6 +140,6 @@ def ping(host, timeout=1):
 
 
 if __name__ == '__main__':
-    ping("google.co.il")
+    result = ping("google.co.il")
     # result = ping("No.no.e")
-    # print(result)
+    print(result)
