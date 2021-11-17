@@ -171,24 +171,24 @@ def get_route(hostname):
     hop =+ 1
     tracelist1 = []
 
-if __name__ == '__main__':
-    # print("--------------------------------------------")
-    print("target-host.com")
-    print("--------------------------------------------")
-    target = get_route("www.china.org.cn")  # USA - North America
-    print(target)
-    print("--------------------------------------------")
-    # print('www.china.org.cn')
-    # print("--------------------------------------------")
-    # china = get_route('www.china.org.cn')  # China - Asia
-    # print(china)
-    # print("--------------------------------------------")
-    # print('www.sweden.se')
-    # print("--------------------------------------------")
-    # sweden = get_route('www.sweden.se')  # Sweden - Europe
-    # print(sweden)
-    # print("--------------------------------------------")
-    # print('www.mybroadband.co.za')
-    # print("--------------------------------------------")
-    # africa = get_route('www.mybroadband.co.za')  # some place in Africa
-    # print(africa)
+# if __name__ == '__main__':
+#     # print("--------------------------------------------")
+#     print("target-host.com")
+#     print("--------------------------------------------")
+#     target = get_route("www.china.org.cn")  # USA - North America
+#     print(target)
+#     print("--------------------------------------------")
+#     # print('www.china.org.cn')
+#     # print("--------------------------------------------")
+#     # china = get_route('www.china.org.cn')  # China - Asia
+#     # print(china)
+#     # print("--------------------------------------------")
+#     # print('www.sweden.se')
+#     # print("--------------------------------------------")
+#     # sweden = get_route('www.sweden.se')  # Sweden - Europe
+#     # print(sweden)
+#     # print("--------------------------------------------")
+#     # print('www.mybroadband.co.za')
+#     # print("--------------------------------------------")
+#     # africa = get_route('www.mybroadband.co.za')  # some place in Africa
+#     # print(africa)
