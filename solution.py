@@ -179,6 +179,7 @@ def get_route(hostname):
             finally:
                 mySocket.close()
         tracelist1 = []
+    return tracelist2
 
 
 # if __name__ == '__main__':
