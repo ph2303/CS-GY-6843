@@ -77,10 +77,10 @@ def get_route(hostname):
     tracelist2 = []  # This is your list to contain all traces
 
     for ttl in range(1, MAX_HOPS):
-        hop = 1
         for tries in range(TRIES):
+            # print(ttl)
             destAddr = gethostbyname(hostname)
-            tracelist1.append(hop)
+            tracelist1.append(str(ttl))
             # Fill in start
             # Make a raw socket named mySocket
             icmp = getprotobyname("icmp")
@@ -106,9 +106,11 @@ def get_route(hostname):
                 timeReceived = time.time()
                 timeLeft = timeLeft - howLongInSelect
                 if timeLeft <= 0:
+                    tracelist1.append("*")
                     tracelist1.append("* * * Request timed out.")
                     # Fill in start
                     # You should add the list above to your all traces list
+                    # print("added in try")
                     tracelist2.append(tracelist1)
                     # Fill in end
             except timeout:
@@ -138,6 +140,8 @@ def get_route(hostname):
                     tracelist1.append(rtt)
                     tracelist1.append(addr[0])
                     tracelist1.append(fettchedhostname)
+                    # print("added in 11")
+                    tracelist2.append(tracelist1)
                     # Fill in end
                 elif types == 3:
                     bytes = struct.calcsize("d")
@@ -147,6 +151,8 @@ def get_route(hostname):
                     tracelist1.append(rtt)
                     tracelist1.append(addr[0])
                     tracelist1.append(fettchedhostname)
+                    # print("added in 3")
+                    tracelist2.append(tracelist1)
                     # Fill in end
                 elif types == 0:
                     bytes = struct.calcsize("d")
@@ -156,6 +162,10 @@ def get_route(hostname):
                     tracelist1.append(rtt)
                     tracelist1.append(addr[0])
                     tracelist1.append(fettchedhostname)
+                    # print("added in 0")
+                    tracelist2.append(tracelist1)
+                    # print(addr[0])
+                    # print(destAddr)
                     if addr[0] == destAddr:
                         return tracelist2
                     # Fill in end
@@ -168,20 +178,20 @@ def get_route(hostname):
                 break
             finally:
                 mySocket.close()
-    hop =+ 1
-    tracelist1 = []
+        tracelist1 = []
+
 
 # if __name__ == '__main__':
 #     # print("--------------------------------------------")
-#     print("target-host.com")
-#     print("--------------------------------------------")
-#     target = get_route("www.china.org.cn")  # USA - North America
-#     print(target)
-#     print("--------------------------------------------")
-#     # print('www.china.org.cn')
+#     # print("target-host.com")
 #     # print("--------------------------------------------")
-#     # china = get_route('www.china.org.cn')  # China - Asia
-#     # print(china)
+#     # target = get_route("www.china.org.cn")  # USA - North America
+#     # print(target)
+#     print("--------------------------------------------")
+#     print('www.china.org.cn')
+#     print("--------------------------------------------")
+#     china = get_route('www.china.org.cn')  # China - Asia
+#     print(china)
 #     # print("--------------------------------------------")
 #     # print('www.sweden.se')
 #     # print("--------------------------------------------")
